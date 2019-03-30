@@ -31,3 +31,19 @@
     transform: rotate(360deg);
   }
 }
+
+.Navbar {
+	display: flex;
+	flex-direction: column;
+}
+
+.Button {
+  justify-content: flex-end;
+	border-radius: 100%
+}
+
+#logo {
+  justify-content: flex-start;
+  padding: 3vh;
+  height: 12vh;
+}
