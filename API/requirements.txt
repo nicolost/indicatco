@@ -1,2 +1,4 @@
 Flask
 gunicorn==19.6.0
+newspaper3k
+beautifulsoup4

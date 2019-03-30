@@ -1,8 +1,9 @@
 #!flask/bin/python
-from flask import Flask
+from flask import Flask, jsonify
 import json
 import urllib.request
-
+from newspaper import Article
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -13,14 +14,26 @@ def index():
 
     data = json.loads(contents.read().decode("UTF-8"))
 
-    text = [""]
+    processed_data = []
     for i in range(len(data["data"]["children"])):
-        text.append(data["data"]["children"][i]["data"]["title"])
-
+        url = data["data"]["children"][i]["data"]["url"]
+        
+        processed_data.append({
+            'title': data["data"]["children"][i]["data"]["title"],
+            'url': data["data"]["children"][i]["data"]["url"],
+            'permalink': data["data"]["children"][i]["data"]["permalink"]
+        })
     
-    # print(text)
-    print(data["data"]["children"][0]["data"])
-    return str(text)
+    # get image
+    imgs = []
+    for d in processed_data:
+        article = Article(d['url'])
+        article.download()
+        soup = BeautifulSoup(article.html, 'html.parser')
+        img_link = soup.find("meta", property="og:image")
+        imgs.append(img_link['content'])
+    
+    return jsonify({ 'titles': processed_data, 'imgs': imgs }) 
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
