@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import logo from './assets/mainlogo.svg';
 import worldnews from './assets/buttonredditworldnews.svg'
 import img from './assets/defaultnewscard.jpg'
+import linkicon from './assets/linkbuttonicon.svg'
 
 import './App.css';
 
@@ -54,13 +55,18 @@ function trunc(str, n){
 const Newscard = (props) => {
   let title = "French healthcare system 'should not fund homeopathy' - French medical and drug experts say homeopathic medicines should no longer be paid for by the country’s health system because there is no evidence they work."
   let url = "theguardian.com/lifeandstyle/2019/mar/29/homeopathy-french-healthcare-system";
-  title = trunc(title, 62);
-  url = trunc(url, 30); url = url.substring(url.includes("ww") ? url.indexOf(".")+1 : 0,);
+  title = trunc(title, 70);
+  url = trunc(url, 20); url = url.substring(url.includes("ww") ? url.indexOf(".")+1 : 0,);
   return (
     <div id="box">
       <img id="newsimg" src={img} />
-      <p class="title">{title}</p>
-      <p class="url">{url}</p>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ width: '85%' }}>
+          <div id="title"><p class="title">{title}</p></div>
+          <div id="url"><p class="url">{url}</p></div>
+        </div>
+          <div style={{ width: '5%' }}><img id="linkicon" src={linkicon} /></div>
+      </div>
     </div>
   )
 }

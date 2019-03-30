@@ -113,3 +113,8 @@ p {
   font-size: 22px;
   color: #6E6E6E;
 }
+
+#linkicon {
+  height: 80px; width: auto;
+  margin: 27.5px 0;
+}
