@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+import s from './assets/mainlogo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      	<Navbar />
       </div>
     );
   }
 }
+
+class Navbar extends Component {
+  render() {
+    return (
+	  <div className="Navbar">
+	    <div className="Navbar-Top">
+	      <img id="logo" src={s} alt="img" />
+	    </div>
+	    <div className="Navbar-Bottom">
+	      <Navlink labels={['test1', 'test2']} />
+	    </div>
+	  </div>
+	);
+  }
+}
+
+const Navlink = (props) => {
+  return (
+    <div className="Navlink">
+      {
+        props.labels.map((l,i) => <a id={i} href="#">{l}</a>)
+      }
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
 
 export default App;
