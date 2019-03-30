@@ -8,12 +8,47 @@ import linkicon from './assets/linkbuttonicon.svg'
 import './App.css';
 
 class App extends Component {
+  componentDidMount(){
+
+  }
   render() {
+    const data = [
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+      {title: "title"},
+    ]
     return (
       <div className="App">
       	<Navbar />
-        <div id="worldnewsdiv"><a href="https://reddit.com/r/worldnews"><img id="worldnews" src={worldnews} /></a>
-        <Newscard />
+        <a href="https://reddit.com/r/worldnews"><img id="worldnews" src={worldnews} /></a>
+        <div id="worldnewsdiv">
+        {
+        data.map((l,i) => <Newscard title={l.title} />)
+        }
         </div>
       </div>
     );
@@ -55,17 +90,17 @@ function trunc(str, n){
 const Newscard = (props) => {
   let title = "French healthcare system 'should not fund homeopathy' - French medical and drug experts say homeopathic medicines should no longer be paid for by the country’s health system because there is no evidence they work."
   let url = "theguardian.com/lifeandstyle/2019/mar/29/homeopathy-french-healthcare-system";
-  title = trunc(title, 70);
+  title = trunc(title, 55);
   url = trunc(url, 20); url = url.substring(url.includes("ww") ? url.indexOf(".")+1 : 0,);
   return (
     <div id="box">
       <img id="newsimg" src={img} />
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <div style={{ width: '85%' }}>
-          <div id="title"><p class="title">{title}</p></div>
-          <div id="url"><p class="url">{url}</p></div>
+        <div style={{ width: '95%', width: '99.5%' }}>
+          <div id="title"><p className="title">{title}</p></div>
+          <div id="url"><p className="url">{url}</p></div>
         </div>
-          <div style={{ width: '5%' }}><img id="linkicon" src={linkicon} /></div>
+          <div><a id="linkicon" href={url}></a></div>
       </div>
     </div>
   )

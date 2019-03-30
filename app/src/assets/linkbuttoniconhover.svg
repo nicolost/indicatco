@@ -14,7 +14,7 @@
                     <path d="M18,35C27.389,35 35,27.389 35,18C35,8.611 27.389,1 18,1C8.611,1 1,8.611 1,18C1,27.389 8.611,35 18,35Z"/>
                 </clipPath>
                 <g clip-path="url(#_clip2)">
-                    <rect x="0" y="0" width="36" height="36" style="fill:rgb(224,223,224);"/>
+                    <rect x="0" y="0" width="36" height="36" style="fill-opacity:0.431373;"/>
                 </g>
                 <g transform="matrix(-1,-0,0,-1,35,35)">
                     <circle cx="17" cy="17" r="17" style="fill:none;stroke:rgb(168,168,168);stroke-width:0.55px;"/>
