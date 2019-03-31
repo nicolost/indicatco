@@ -16,6 +16,29 @@ import Axios from 'axios';
 import news from './news.json';
 import './App.css';
 
+const tweet_data = [
+  { tweet: "♨ 'They'll kill me if they find me' #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/Tvth7ErOj8",
+sentiment: "Negative"},{
+tweet: "♨ 🔥 Take me back to 2006 #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/rhkqiS3jr2",
+sentiment: "Negative"},{
+tweet: "♨ Police are tracking you and your license plates #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/yHYot4VRAQ",
+sentiment: "Negative"},{
+tweet: "RT @celebritykimdot: ♨ Student cleared of murdering her disabled mum and leaving body to rot now runs fetish website #News #Hello #Politics…",
+sentiment: "Negative"},{
+tweet: "♨ Student cleared of murdering her disabled mum and leaving body to rot now runs fetish website #News #Hello… https://t.co/KTbEaq9Wdq",
+sentiment: "Negative"},{
+tweet: "♨ Truck driver: Government decides when I work, eat and sleep #News #Hello #Politics #Opinion #Business #Sports… https://t.co/fdqTMkT7rH",
+sentiment: "Negative"},{
+tweet: "♨ 🔥 The apple and fork game #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/hxq6zh9wtJ",
+sentiment: "Negative"},{
+tweet: "♨ Saudis 'had access' to Amazon CEO Jeff Bezos' phone: investigator | USA News #News #Hello #Politics #Opinion… https://t.co/1C5DFTZhNq",
+sentiment: "Negative"},{
+tweet: "♨ Rare look at Myanmar military celebrations - #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/stqKJuuzJ0",
+sentiment: "Positive"},{
+tweet: "♨ 🔥 Not all heros wear capes #News #Hello #Politics #Opinion #Business #Sports #World #Today https://t.co/i42N8zIqsr",
+sentiment: "Negative"}
+]
+
 console.log(news);
 let data = news.titles.map((d, i) => ({ title: d.title, url: d.url, img: news.imgs[i] }))
 
@@ -216,21 +239,23 @@ class LiveTweets extends Component {
 
   render() {
     return <div>
-      <input type="text" onChange={e => this.setState({ hashtag: e.target.value })} />
-      <button onClick={this.getTweets}>get tweets</button>
+    <div className="dirtext" style={{fontWeight: 600}}>Find the sentiment of a hashtag:</div><div className="inputstuff">
+      <input className="input" type="text" onChange={e => this.setState({ hashtag: e.target.value })} />
+      <button style={{fontSize: "2em",color: "white", background: "black", borderRadius: "15px", marginTop: "10px", cursor: "pointer"}} onClick={this.getTweets}>Get Tweets</button>
+      </div>
+      <div className="tweetbox">
       { 
-        this.state.tweets.length > 0 && <div>
-          { this.state.tweets.map(t => {
-            return <div>
-              <div>Tweet: {t.tweet}</div>
-              <div>Sentiment: {t.score > 0 ? 'Positive' : 'Negative'}</div>
-            </div>
-          }) }
-        </div>
+        this.state.tweets.map(t => {
+          return <div className="tweet" id={t.score > 0 ? 'Positive' : 'Negative'}>
+            <div>Tweet: "{t.tweet}"</div>
+            <div>Sentiment: {t.score > 0 ? 'Positive' : 'Negative'}</div>
+          </div>
+        })
       }
       {
-        this.state.loading && <div>Getting tweets</div>
+        this.state.loading && <div>Fetching tweets...</div>
       }
+      </div>
     </div>
   }
 }
