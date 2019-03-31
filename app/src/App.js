@@ -8,6 +8,7 @@ import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
+import tube from './assets/testtube.svg'
 
 import news from './news.json';
 import './App.css';
@@ -103,7 +104,7 @@ class App extends Component {
           </div>
         <Direction />
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
-
+        <About />
       </div>
     );
   }
@@ -117,7 +118,7 @@ class Navbar extends Component {
 	      <img id="logo" src={logo} alt="img" />
 	    </div>
 	    <div className="Navbar-Bottom">
-	      <Navlink labels={['Twitter Analysis', 'Reddit Analysis', 'About']} />
+	      <Navlink labels={['Using alternative data to predict stock prices.']} />
 	    </div>
 	  </div>
 	);
@@ -168,7 +169,28 @@ const Newscard = (props) => {
 
 const Direction = (props) => {
   return (
-  <div id="direction"><p className="dirtext">Based on recent news and historical data, our model predicts the Dow index will <img src={rise} alt="rise" height="50px" id="dirbutton"/></p></div>
+  <div id="direction"><p className="dirtext">Based on today's news and historical data, the Dow index is likely to <img src={rise} alt="rise" height="50px" id="dirbutton"/></p></div>
+  )
+}
+
+const About = (props) => {
+  return (
+    <div id="aboutcontainer">
+    <div id="about">
+      <img id="testtube" src={tube} />
+      <div id="textbox">
+        <p id="aboutText">
+          We set out with the mission of interpreting unorthodox alternative data sources using machine learning in order to predict future increases or decreases in the price of the Dow Jones index.
+          <br /><br />
+          In the future we plan to include a multitude of different factors and variables into our model ranging from sentiment analysis to google search trends but as an initial proof of concept we have analysed the top news stories from r/worldnews on Reddit.
+          <br /><br />
+          We then run these through our ML models to come up with a binary price movement prediction that is accurate around 60% of the time.
+          <br /><br />
+          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used so the fact that we managed to reach almost 60% has some serious potential.
+        </p>
+      </div>
+    </div>
+    </div>
   )
 }
 

@@ -54,7 +54,8 @@
 .Navlink {
   font-family: Futura;
   src: url('./assets/Futura-Medium.woff'), format('WOFF');
-  font-size: 2vw;
+  font-size: 1.5vw;
+  color: red;
   width: 60vw;
   margin: auto;
   padding: 1vw;
@@ -178,4 +179,34 @@ p {
 
 #line {
   margin: 10%;
+}
+
+#about {
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+}
+
+#aboutcontainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#testtube {
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  width: 40vw;
+  height: 70vh;
+}
+
+#aboutText {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  color: #6E6E6E;
+  width: 40vw;
+  padding: 0 5%;
+  flex-wrap: wrap;
 }
