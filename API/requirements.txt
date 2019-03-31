@@ -2,5 +2,8 @@ Flask
 gunicorn==19.6.0
 newspaper3k
 beautifulsoup4
-pickle
 flask_cors
+twitter_scraper
+tweepy
+google-cloud
+google-cloud-language

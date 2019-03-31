@@ -8,7 +8,9 @@ import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
-import tube from './assets/testtube.svg'
+import tube from './assets/testTube.svg'
+
+import Axios from 'axios';
 
 import news from './news.json';
 import './App.css';
@@ -30,7 +32,6 @@ class App extends Component {
     let reqData;
     const resp = await fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=DJI&outputsize=compact&apikey=CIJ11HX73V8AQ447&datatype=json")
     const res = await resp.json()
-
     reqData = res
 
     this.setState({data: reqData});
@@ -103,6 +104,7 @@ class App extends Component {
           </div>
         <Direction />
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
+        <LiveTweets />
         <About />
       </div>
     );
@@ -191,6 +193,43 @@ const About = (props) => {
     </div>
     </div>
   )
+}
+
+
+class LiveTweets extends Component {
+  state = {
+    tweets: [],
+    hashtag: '',
+    loading: false,
+  }
+
+  getTweets = async () => {
+    const hashtag = this.state.hashtag;
+    await this.setState({ loading: true });
+    const { data } = await Axios.get(`http://localhost:5000/twitter/hashtag/${hashtag}`);
+    await this.setState({ tweets: data.tweets });
+    await this.setState({ loading: false });
+  }
+
+  render() {
+    return <div>
+      <input type="text" onChange={e => this.setState({ hashtag: e.target.value })} />
+      <button onClick={this.getTweets}>get tweets</button>
+      { 
+        this.state.tweets.length > 0 && <div>
+          { this.state.tweets.map(t => {
+            return <div>
+              <div>Tweet: {t.tweet}</div>
+              <div>Sentiment: {t.score > 0 ? 'Positive' : 'Negative'}</div>
+            </div>
+          }) }
+        </div>
+      }
+      {
+        this.state.loading && <div>Getting tweets</div>
+      }
+    </div>
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
