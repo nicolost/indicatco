@@ -10,6 +10,8 @@ import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
 import tube from './assets/testTube.svg'
 import ad from './assets/bannerad.svg'
+import chart from './assets/chartforabout.svg'
+
 
 import Axios from 'axios';
 
@@ -132,10 +134,11 @@ class App extends Component {
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
         <LiveTweets />
         <About />
-        <div style={{ paddingTop: '100px', width: '60%', margin: '0 auto' }}>
-          <h2 style={{ textAlign: 'center' }}>Rationale and Technical Specs</h2>
-
-          <p id="aboutText" style={{ width: '100%', textAlign: 'justify' }}>
+        <div style={{ marginLeft:'-200px', paddingTop: '100px', width: '60%', margin: '0 auto' }}>
+        <hr style={{marginBottom: "5vh"}}/>
+          <div style={{fontWeight: 600, marginBottom: 40}} className="dirtext">Rationale and Technical Specs</div>
+            <img src={chart} height="400" style={{paddingBottom: "5vh"}}/>
+          <p id="aboutText" style={{ width: '100%', textAlign: 'justify', marginLeft: '-30px' }}>
           We built a tool to make stock predictions using Reddit and Twitter data. We believe that using non conventional data (such as Twitter and Reddit) can give traders an edge when it comes to predicting the stock market. The two tools can be easily integrated with the traders terminal or used through our web app.
           
           <br /><br />

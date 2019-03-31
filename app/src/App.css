@@ -224,6 +224,7 @@ p {
   justify-content: center;
     min-height: 14vh;
   padding: 3vh 0;
+  background: white;
 }
 .tweetbox{
   font-family: Futura;
@@ -238,7 +239,8 @@ p {
   border-bottom: 4px solid #6E6E6E;
   margin-bottom: 20vh;
   overflow-y: scroll;
-  
+  background: url('./assets/twitterdude.svg');
+  background-size: cover;
 }
 
 .tweettext{
