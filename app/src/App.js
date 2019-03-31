@@ -8,7 +8,7 @@ import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
-import tube from './assets/testtube.svg'
+import tube from './assets/TESTTUBE.svg'
 import ad from './assets/bannerad.svg'
 
 import news from './news.json';
