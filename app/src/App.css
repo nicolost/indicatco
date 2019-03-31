@@ -55,7 +55,7 @@
   font-family: Futura;
   src: url('./assets/Futura-Medium.woff'), format('WOFF');
   font-size: 1.5vw;
-  color: red;
+  color: "#D8D8D8";
   width: 60vw;
   margin: auto;
   padding: 1vw;
