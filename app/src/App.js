@@ -250,10 +250,9 @@ class LiveTweets extends Component {
   }
 
   getTweets = async () => {
-    const hashtag = this.state.hashtag;
+    // const hashtag = this.state.hashtag;
     await this.setState({ loading: true });
-    const { data } = await Axios.get(`http://localhost:5000/twitter/hashtag/${hashtag}`);
-    await this.setState({ tweets: data.tweets });
+    await this.setState({ tweets: tweet_data });
     await this.setState({ loading: false });
   }
 
