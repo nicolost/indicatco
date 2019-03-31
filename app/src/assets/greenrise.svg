@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 59 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g transform="matrix(1,0,0,1,-20.5886,-59.7401)">
+        <g transform="matrix(0.486138,0,0,0.486138,20.5886,59.7401)">
+            <clipPath id="_clip1">
+                <path d="M2,0L119,0C120.105,0 121,0.895 121,2L121,49C121,50.105 120.105,51 119,51L2,51C0.895,51 0,50.105 0,49L0,2C0,0.895 0.895,0 2,0Z"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <rect x="-5" y="-5" width="131" height="61" style="fill:rgb(9,162,2);"/>
+            </g>
+        </g>
+        <g transform="matrix(0.486138,0,0,0.486138,13.5917,59.8045)">
+            <text x="30px" y="36px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:29px;fill:white;">RISE</text>
+        </g>
+        <g transform="matrix(1.14424e-17,-1,1,1.14424e-17,25.74,139.166)">
+            <path d="M61.363,42.379L61.363,39.759L68.825,39.759L68.825,37.327L72.567,41.069L68.825,44.811L68.825,42.379L61.363,42.379Z" style="fill:rgb(235,235,235);"/>
+        </g>
+    </g>
+</svg>
