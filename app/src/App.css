@@ -183,19 +183,21 @@ p {
 #about {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  width: 75vw;
 }
 
 #aboutcontainer {
   display: flex;
-  width: 90vw;
+  justify-content: center;
+  width: 100%;
 }
 
 #testtube {
   display: flex;
   justify-content: flex-start;
-  width: 30%;
-  height: 100%;
+  align-self: center;
+  width: 40vw;
+  height: 70vh;
 }
 
 #aboutText {
@@ -203,7 +205,7 @@ p {
   justify-content: flex-end;
   font-size: 24px;
   color: #6E6E6E;
-  width: 70%;
+  width: 40vw;
   padding: 0 5%;
   flex-wrap: wrap;
 }
