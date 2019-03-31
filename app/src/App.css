@@ -180,3 +180,31 @@ p {
 #line {
   margin: 10%;
 }
+
+#about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#aboutcontainer {
+  display: flex;
+  width: 90vw;
+}
+
+#testtube {
+  display: flex;
+  justify-content: flex-start;
+  width: 30%;
+  height: 100%;
+}
+
+#aboutText {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  color: #6E6E6E;
+  width: 70%;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
