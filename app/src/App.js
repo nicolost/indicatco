@@ -184,9 +184,9 @@ const About = (props) => {
       <img id="testTube" src={tube} />
       <div id="textbox">
         <p id="aboutText">
-          Indicat investigates unorthodox alternative data sources using machine learning in order to predict whether the price of the Dow Jones Index will increase or decrease.
+          Indicat analyses unorthodox alternative data sources in order to predict whether the price of the Dow Jones Index will increase or decrease using machine learning.
           <br /><br />
-          In the future, we plan to include a multitude of uncorrelated factors and variables into a model including sentiment analysis and Google search trends. What you see here is a proof of concept: we have analysed the top news stories from r/worldnews on Reddit.
+          In the future, we plan to include a multitude of uncorrelated factors and variables into the model including sentiment analysis and Google search trends. What you see here is a proof of concept: we have analysed the top news stories from r/worldnews on Reddit.
           <br /><br />
           The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
           <br /><br />
@@ -218,7 +218,7 @@ class LiveTweets extends Component {
     return <div>
       <input type="text" onChange={e => this.setState({ hashtag: e.target.value })} />
       <button onClick={this.getTweets}>get tweets</button>
-      { 
+      {
         this.state.tweets.length > 0 && <div>
           { this.state.tweets.map(t => {
             return <div>
