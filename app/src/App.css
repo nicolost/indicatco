@@ -184,20 +184,20 @@ p {
 #about {
   display: flex;
   flex-direction: row;
-  width: 75vw;
+  justify-content: center;
+  width: 150vw;
 }
 
 #aboutcontainer {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
-#testtube {
+#testTube {
   display: flex;
   justify-content: flex-start;
   align-self: center;
-  width: 40vw;
+  width: auto;
   height: 70vh;
 }
 
