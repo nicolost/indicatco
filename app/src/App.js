@@ -180,13 +180,13 @@ const About = (props) => {
       <img id="testtube" src={tube} />
       <div id="textbox">
         <p id="aboutText">
-          We set out with the mission of interpreting unorthodox alternative data sources using machine learning in order to predict future increases or decreases in the price of the Dow Jones index.
+          Indicat investigates unorthodox alternative data sources using machine learning in order to predict whether the price of the Dow Jones Index will increase or decrease.
           <br /><br />
-          In the future we plan to include a multitude of different factors and variables into our model ranging from sentiment analysis to google search trends but as an initial proof of concept we have analysed the top news stories from r/worldnews on Reddit.
+          In the future, we plan to include a multitude of uncorrelated factors and variables into a model including sentiment analysis and Google search trends. What you see here is a proof of concept: we have analysed the top news stories from r/worldnews on Reddit.
           <br /><br />
-          We then run these through our ML models to come up with a binary price movement prediction that is accurate around 60% of the time.
+          The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
           <br /><br />
-          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used so the fact that we managed to reach almost 60% has some serious potential.
+          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is traded - so the fact that we managed to reach almost 60% has some serious potential.
         </p>
       </div>
     </div>
