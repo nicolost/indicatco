@@ -54,7 +54,8 @@
 .Navlink {
   font-family: Futura;
   src: url('./assets/Futura-Medium.woff'), format('WOFF');
-  font-size: 2vw;
+  font-size: 1.5vw;
+  color: red;
   width: 60vw;
   margin: auto;
   padding: 1vw;
