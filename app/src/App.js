@@ -16,10 +16,40 @@ console.log(news);
 let data = news.titles.map((d, i) => ({ title: d.title, url: d.url, img: news.imgs[i] }))
 
 class App extends Component {
-  componentDidMount(){
+  constructor(props){
+    super(props)
+    this.state={
+      data: {},
+      times: [],
+      close: []
+    }
+  }
 
+  async componentDidMount(){
+    let reqData;
+    const resp = await fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=DJI&outputsize=compact&apikey=CIJ11HX73V8AQ447&datatype=json")
+    const res = await resp.json()
+
+    reqData = res
+
+    this.setState({data: reqData});
+    console.table(this.state);
+
+    let dates = [];
+    let close = []
+    console.log(reqData["Time Series (Daily)"])
+    Object.keys(reqData["Time Series (Daily)"]).forEach(t => {
+      dates.push(t)
+      close.push(reqData["Time Series (Daily)"][t]["5. adjusted close"])
+    })
+    this.setState({
+      times: dates,
+      close: close
+    })
   }
   render() {
+    console.table(this.state)
+
     const data2 = [
       {title: "title", url: "bbc.co.uk/somenews", img: "https://i.guim.co.uk/img/media/94ff5cb8cd7b9f3e2b4563c10d6885b49411a841/0_0_5087_3053/master/5087.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdG8tZGVmYXVsdC5wbmc&s=17e3fcec75a618fda11c86f8f3b5f2b7"},
       {title: "title", url: "bbc.co.uk/somemorenews", img: "https://i.guim.co.uk/img/media/94ff5cb8cd7b9f3e2b4563c10d6885b49411a841/0_0_5087_3053/master/5087.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdG8tZGVmYXVsdC5wbmc&s=17e3fcec75a618fda11c86f8f3b5f2b7"},
@@ -27,29 +57,40 @@ class App extends Component {
       {title: "title", url: "bbc.co.uk/brexitnews", img: ""},
       {title: "title", url: "bbc.co.uk/trumpnews", img: ""}
     ]
-    let chartData = {labels: [1,2,3,4,5,6,7],
+    let chartData = {labels: this.state.times,
         datasets: [
           {
           borderColor: '#25297C',
           backgroundColor: '#FFFFFF',
           borderWidth: 5,
-          data: [0, 10, 5, 2, 20, 30, 45],
+          data: this.state.close,
           }
         ]
-      },
-      options = {
-      scales: {
-       xAxes: [{
-           barPercentage: 0.5,
-           barThickness: 6,
-           maxBarThickness: 8,
-           minBarLength: 2,
-           gridLines: {
-               offsetGridLines: true
-           }
-       }]
-     }
       };
+      let chartOptions = {
+        legend: {
+            display: false
+         },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false, //disable lines on the chart area inside the axis lines
+                drawBorder: false, //disable border at the edge between the axis and the chart area
+                drawTicks: false, //disable lines beside the ticks in the axis area beside the chart.
+                zeroLineWidth: 0, //zero width of the grid line for the first index (index 0).
+                display: false
+              },
+            }],
+            yAxes: [{
+              gridLines: {
+                drawOnChartArea: false, //disable lines on the chart area inside the axis lines
+                drawBorder: false, //disable border at the edge between the axis and the chart area
+                drawTicks: false, //disable lines beside the ticks in the axis area beside the chart.
+                zeroLineWidth: 0, //zero width of the grid line for the first index (index 0).
+                display: false
+              },
+            }]
+          }};
     return (
       <div className="App">
       	<Navbar />
@@ -60,7 +101,7 @@ class App extends Component {
           }
           </div>
         <Direction />
-          <div id="line"><Line data={chartData} width={150} height={75}/></div>
+          <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
 
       </div>
     );
@@ -126,7 +167,7 @@ const Newscard = (props) => {
 
 const Direction = (props) => {
   return (
-  <div id="direction"><p class="dirtext">Based on today's news and historical data, the Dow index might <img src={rise} alt="rise" height="50px" id="dirbutton"/></p></div>
+  <div id="direction"><p className="dirtext">Based on today's news and historical data, the Dow index might <img src={rise} alt="rise" height="50px" id="dirbutton"/></p></div>
   )
 }
 
