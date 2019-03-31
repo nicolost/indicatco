@@ -132,6 +132,22 @@ class App extends Component {
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
         <LiveTweets />
         <About />
+        <div style={{ paddingTop: '100px', width: '60%', margin: '0 auto' }}>
+          <h2 style={{ textAlign: 'center' }}>Rationale and Technical Specs</h2>
+
+          <p id="aboutText" style={{ width: '100%', textAlign: 'justify' }}>
+          We built a tool to make stock predictions using Reddit and Twitter data. We believe that using non conventional data (such as Twitter and Reddit) can give traders an edge when it comes to predicting the stock market. The two tools can be easily integrated with the traders terminal or used through our web app.
+          
+          <br /><br />
+          Reddit stock prediction:
+          Many traders used Reddit in their spare time. So we thought of analysing Reddit’s world news data to predict the outcome of DJIA (Dow Jones Index Average). We try two methods of prediction: news to predict whether open > close using news on the day and using news from the previous days to predict the outcome (open > close) on the next day.
+          To accomplish this we build a neural network model using the state of the art LSTM (Long Short Term Memory). Recent research shows that LSTM works best with textual and sequential data. We trained our LSTM based on dataset by Sun, J, 2016, which contains Reddit world news data over a period of 8 years starting in 2008 and DJIA score. The score is 0 if opening is lower than closing, 1 if it is equal to or higher. Our best model predicts the DJIA score using the data from the day before to predict the outcome of DJIA in the following day.
+          
+          <br /><br />
+          Twitter Sentiment analysis stock prediction:
+          Many traders are avid Twitter users. Therefore it might be useful to find out what people are thinking about certain topics in real time. With this, traders could find recent sentiments on a certain topic, which may influence stock prices. To build this tool, we used the Twitter API along with Google Cloud sentiment analysis under their NLP service.
+          </p>
+        </div>
         <Banner />
       </div>
     );
@@ -204,20 +220,20 @@ const Direction = (props) => {
 const About = (props) => {
   return (
     <div id="aboutcontainer">
-    <div id="about">
-      <img id="testTube" src={tube} />
-      <div id="textbox">
-        <p id="aboutText">
-          Indicat analyses unorthodox alternative data sources in order to predict whether the price of the Dow Jones Index will increase or decrease using machine learning.
-          <br /><br />
-          In the future, we plan to include a multitude of uncorrelated factors and variables into the model including sentiment analysis and Google search trends. What you see here is a proof of concept: we have analysed the top news stories from r/worldnews on Reddit.
-          <br /><br />
-          The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
-          <br /><br />
-          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
-        </p>
+      <div id="about">
+        <img id="testTube" src={tube} />
+        <div id="textbox">
+          <p id="aboutText">
+            Indicat analyses unorthodox alternative data sources in order to predict whether the price of the Dow Jones Index will increase or decrease using machine learning.
+            <br /><br />
+            In the future, we plan to include a multitude of uncorrelated factors and variables into the model including sentiment analysis and Google search trends. What you see here is a proof of concept: we have analysed the top news stories from r/worldnews on Reddit.
+            <br /><br />
+            The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
+            <br /><br />
+            Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
+          </p>
+        </div>
       </div>
-    </div>
     </div>
   )
 }
