@@ -4,6 +4,8 @@ import json
 import urllib.request
 from newspaper import Article
 from bs4 import BeautifulSoup
+import pickle
+from keras.models import model_from_json
 
 app = Flask(__name__)
 
