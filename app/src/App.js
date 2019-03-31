@@ -9,6 +9,7 @@ import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
 import tube from './assets/testtube.svg'
+import ad from './assets/bannerad.svg'
 
 import news from './news.json';
 import './App.css';
@@ -104,6 +105,7 @@ class App extends Component {
         <Direction />
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
         <About />
+        <Banner />
       </div>
     );
   }
@@ -185,11 +187,17 @@ const About = (props) => {
           <br /><br />
           We then run these through our ML models to come up with a binary price movement prediction that is accurate around 60% of the time.
           <br /><br />
-          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used so the fact that we managed to reach almost 60% has some serious potential.
+          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit, if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
         </p>
       </div>
     </div>
     </div>
+  )
+}
+
+const Banner = (props) => {
+  return (
+    <div><img id="ad" src={ad} /></div>
   )
 }
 
