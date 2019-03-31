@@ -116,7 +116,7 @@ class Navbar extends Component {
 	      <img id="logo" src={logo} alt="img" />
 	    </div>
 	    <div className="Navbar-Bottom">
-	      <Navlink labels={['Twitter Analysis', 'Reddit Analysis', 'About']} />
+	      <Navlink labels={['Using alternative data to predict stock prices.']} />
 	    </div>
 	  </div>
 	);
