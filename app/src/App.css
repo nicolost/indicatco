@@ -173,3 +173,7 @@ p {
 #linkicon:hover {
   background-image: url("./assets/linkbuttoniconhover.svg");
 }
+
+#line {
+  margin: 10%;
+}

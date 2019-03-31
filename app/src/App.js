@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {Line} from 'react-chartjs-2';
+
 import logo from './assets/mainlogo.svg';
 import worldnews from './assets/buttonredditworldnews.svg'
 import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
+
 import news from './news.json';
 import './App.css';
 
@@ -24,6 +27,29 @@ class App extends Component {
       {title: "title", url: "bbc.co.uk/brexitnews", img: ""},
       {title: "title", url: "bbc.co.uk/trumpnews", img: ""}
     ]
+    let chartData = {labels: [1,2,3,4,5,6,7],
+        datasets: [
+          {
+          borderColor: '#25297C',
+          backgroundColor: '#FFFFFF',
+          borderWidth: 5,
+          data: [0, 10, 5, 2, 20, 30, 45],
+          }
+        ]
+      },
+      options = {
+      scales: {
+       xAxes: [{
+           barPercentage: 0.5,
+           barThickness: 6,
+           maxBarThickness: 8,
+           minBarLength: 2,
+           gridLines: {
+               offsetGridLines: true
+           }
+       }]
+     }
+      };
     return (
       <div className="App">
       	<Navbar />
@@ -34,6 +60,8 @@ class App extends Component {
           }
           </div>
         <Direction />
+          <div id="line"><Line data={chartData} width={150} height={75}/></div>
+
       </div>
     );
   }
@@ -79,16 +107,16 @@ const Newscard = (props) => {
     img = props.img
   }
   title = trunc(title, 55);
-  url = url.replace("https://", "");
-  url = url.replace("http://", "");
-  url = trunc(url, 30); url = url.substring(url.includes("ww") ? url.indexOf(".")+1 : 0,);
+  let urlclip = url.replace("https://", "");
+  urlclip = urlclip.replace("http://", "");
+  urlclip = trunc(urlclip, 25); urlclip = urlclip.substring(urlclip.includes("ww") ? urlclip.indexOf(".")+1 : 0,);
   return (
     <div id="box">
-      <img id="newsimg" src={img} />
+      <a href={url}><img id="newsimg" src={img} /></a>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div style={{ width: '85%' }}>
-          <div id="title"><p className="title">{title}</p></div>
-          <div id="subtitle"><p className="subtitle">{url}</p></div>
+          <a href={url}><div id="title"><p className="title">{title}</p></div></a>
+          <a href={url}><div id="subtitle"><p className="subtitle">{urlclip}</p></div></a>
         </div>
           <div><a id="linkicon" href={url}></a></div>
       </div>
