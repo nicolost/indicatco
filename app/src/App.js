@@ -9,7 +9,7 @@ import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
 import tube from './assets/testTube.svg'
-import ad from './assets/bannerad.png'
+import ad from './assets/bannerad.svg'
 
 import Axios from 'axios';
 
@@ -68,6 +68,7 @@ class App extends Component {
           backgroundColor: "white",
           borderWidth: 5,
           data: this.state.close,
+
           }
         ]
       };
@@ -83,7 +84,7 @@ class App extends Component {
                 drawTicks: false, //disable lines beside the ticks in the axis area beside the chart.
                 zeroLineWidth: 0, //zero width of the grid line for the first index (index 0).
                 display: false
-              },
+              }
             }],
             yAxes: [{
               gridLines: {
@@ -190,7 +191,7 @@ const About = (props) => {
           <br /><br />
           The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
           <br /><br />
-          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit, if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
+          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
         </p>
       </div>
     </div>
@@ -218,7 +219,7 @@ class LiveTweets extends Component {
     return <div>
       <input type="text" onChange={e => this.setState({ hashtag: e.target.value })} />
       <button onClick={this.getTweets}>get tweets</button>
-      { 
+      {
         this.state.tweets.length > 0 && <div>
           { this.state.tweets.map(t => {
             return <div>
