@@ -8,7 +8,8 @@ import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
-import tube from './assets/testTube.svg'
+import tube from './assets/testtube.svg'
+import ad from './assets/bannerad.svg'
 
 import Axios from 'axios';
 
@@ -59,7 +60,7 @@ class App extends Component {
     //   {title: "title", url: "bbc.co.uk/brexitnews", img: ""},
     //   {title: "title", url: "bbc.co.uk/trumpnews", img: ""}
     // ]
-    
+
     let chartData = {labels: this.state.times,
         datasets: [
           {
@@ -107,6 +108,7 @@ class App extends Component {
           <div id="line"><Line data={chartData} options={chartOptions} width={150} height={75}/></div>
         <LiveTweets />
         <About />
+        <Banner />
       </div>
     );
   }
@@ -188,7 +190,7 @@ const About = (props) => {
           <br /><br />
           The Reddit news stories are run through our ML models to come up with a binary price movement (rise/fall) prediction that approaches 60% accuracy.
           <br /><br />
-          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit if enough volume is traded - so the fact that we managed to reach almost 60% has some serious potential.
+          Our goal was to get as far over the 50% mark as possible. In aggregate even 51% has the potential for serious profit, if enough volume is used, so the fact that we managed to reach almost 60% has some serious potential.
         </p>
       </div>
     </div>
@@ -231,6 +233,12 @@ class LiveTweets extends Component {
       }
     </div>
   }
+}
+
+const Banner = (props) => {
+  return (
+    <div><img id="ad" src={ad} /></div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

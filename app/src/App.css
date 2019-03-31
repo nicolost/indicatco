@@ -210,3 +210,8 @@ p {
   padding: 0 5%;
   flex-wrap: wrap;
 }
+
+#ad {
+  height: 80vh;
+  width: 80vw;
+}
