@@ -8,8 +8,8 @@ import defaultimg from './assets/defaultnewscard.jpg'
 import linkicon from './assets/linkbuttonicon.svg'
 import rise from './assets/greenrise.svg'
 import fall from './assets/redfall.svg'
-import tube from './assets/testtube.svg'
-import ad from './assets/bannerad.svg'
+import tube from './assets/testTube.svg'
+import ad from './assets/bannerad.png'
 
 import news from './news.json';
 import './App.css';
@@ -179,7 +179,7 @@ const About = (props) => {
   return (
     <div id="aboutcontainer">
     <div id="about">
-      <img id="testtube" src={tube} />
+      <img id="testTube" src={tube} />
       <div id="textbox">
         <p id="aboutText">
           Indicat investigates unorthodox alternative data sources using machine learning in order to predict whether the price of the Dow Jones Index will increase or decrease.
